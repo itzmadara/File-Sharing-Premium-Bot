@@ -1,11 +1,3 @@
-# Jishu Developer 
-# Don't Remove Credit 🥺
-# Telegram Channel @Madflix_Bots
-# Backup Channel @JishuBotz
-# Developer @JishuDeveloper
-
-
-
 from aiohttp import web
 from plugins import web_server
 import pyromod.listen
@@ -16,7 +8,7 @@ from datetime import datetime
 from config import API_HASH, APP_ID, LOGGER, TG_BOT_TOKEN, TG_BOT_WORKERS, FORCE_SUB_CHANNEL, CHANNEL_ID, PORT
 
 
-name ="""By @Madflix_Bots From Telegram"""
+name = """By @Madflix_Bots From Telegram"""
 
 
 class Bot(Client):
@@ -51,7 +43,7 @@ class Bot(Client):
                 self.LOGGER(__name__).warning(f"Please Double check the FORCE_SUB_CHANNEL value and Make sure Bot is Admin in channel with Invite Users via Link Permission, Current Force Sub Channel Value: {FORCE_SUB_CHANNEL}")
                 self.LOGGER(__name__).info("\nBot Stopped. https://t.me/MadflixBots_Support for support")
                 sys.exit()
-         if FORCESUB_CHANNEL2:
+        if FORCESUB_CHANNEL2:
             try:
                 link = (await self.get_chat(FORCESUB_CHANNEL2)).invite_link
                 if not link:
@@ -67,7 +59,7 @@ class Bot(Client):
         try:
             db_channel = await self.get_chat(CHANNEL_ID)
             self.db_channel = db_channel
-            test = await self.send_message(chat_id = db_channel.id, text = "Test Message")
+            test = await self.send_message(chat_id=db_channel.id, text="Test Message")
             await test.delete()
         except Exception as e:
             self.LOGGER(__name__).warning(e)
@@ -77,7 +69,7 @@ class Bot(Client):
 
         self.set_parse_mode(ParseMode.HTML)
         self.LOGGER(__name__).info(f"Bot Running..!\n\nCreated by \nhttps://t.me/Madflix_Bots")
-        self.LOGGER(__name__).info(f"""
+        self.LOGGER(__name__).info("""
 ──╔╦══╦═══╦╗─╔╦╗─╔╦══╗╔═══╦════╦════╗
 ──║╠╣╠╣╔═╗║║─║║║─║║╔╗║║╔═╗║╔╗╔╗╠══╗═║
 ──║║║║║╚══╣╚═╝║║─║║╚╝╚╣║─║╠╝║║╚╝─╔╝╔╝
@@ -85,7 +77,7 @@ class Bot(Client):
 ║╚╝╠╣╠╣╚═╝║║─║║╚═╝║╚═╝║╚═╝║─║║─╔╝═╚═╗
 ╚══╩══╩═══╩╝─╚╩═══╩═══╩═══╝─╚╝─╚════╝""")
         self.username = usr_bot_me.username
-        #web-response
+        # web-response
         app = web.AppRunner(await web_server())
         await app.setup()
         bind_address = "0.0.0.0"
@@ -94,13 +86,9 @@ class Bot(Client):
     async def stop(self, *args):
         await super().stop()
         self.LOGGER(__name__).info("Bot stopped.")
-            
 
 
-
-
-
-# Jishu Developer 
+# Jishu Developer
 # Don't Remove Credit 🥺
 # Telegram Channel @Madflix_Bots
 # Backup Channel @JishuBotz
